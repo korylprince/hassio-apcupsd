@@ -31,3 +31,12 @@ You can also override any setting in `apcupsd.conf` using the `extra` configurat
 Note: If you're wondering why the excessive syntax, currently it's not possible to have an arbitrary map with the Hass.io schema.
 
 For help with configuring apcupsd itself, see the [manual](http://www.apcupsd.com/manual/manual.html).
+
+# Home Assistant Configuration
+
+Home Assistant can communicate with this add-on through the [internal Hass.io network](https://home-assistant.io/developers/hassio/addon_communication/):
+
+```
+apcupsd:
+  host: a722577e-apcupsd
+```
