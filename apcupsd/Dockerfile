@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 COPY run.sh /
 RUN chmod a+x /run.sh
 
-RUN apk add --no-cache apcupsd jq
+RUN apk add --no-cache apcupsd jq mailx
 
 WORKDIR /data
 
