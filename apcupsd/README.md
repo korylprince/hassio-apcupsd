@@ -32,6 +32,10 @@ Note: If you're wondering why the excessive syntax, currently it's not possible 
 
 For help with configuring apcupsd itself, see the [manual](http://www.apcupsd.com/manual/manual.html).
 
+### Email Information
+
+`apcupsd` (the daemon) contains utilities to automatically email someone when a battery event occurs. This add-on does not currently support email (it just mocks the `mail` command.) If this is something you'd like, feel free to submit a PR.
+
 # Home Assistant Configuration
 
 Home Assistant can communicate with this add-on through the [internal Hass.io network](https://home-assistant.io/developers/hassio/addon_communication/):
@@ -40,3 +44,4 @@ Home Assistant can communicate with this add-on through the [internal Hass.io ne
 apcupsd:
   host: a722577e-apcupsd
 ```
+
