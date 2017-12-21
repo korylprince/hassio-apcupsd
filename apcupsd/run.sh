@@ -48,4 +48,6 @@ for key in "${keys[@]}"; do
     fi
 done
 
+syslogd -n -O - &
+
 exec /sbin/apcupsd -b
