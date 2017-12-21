@@ -7,6 +7,7 @@
     "image": "korylprince/hassio-apcupsd-{arch}",
     "startup": "services",
     "boot": "auto",
+    "hassio_api": true,
     "map": ["share"],
     "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
     "options": {
