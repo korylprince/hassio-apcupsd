@@ -4,6 +4,8 @@ set -e
 CONFIG_PATH=/data/options.json
 UPS_CONFIG_PATH=/etc/apcupsd/apcupsd.conf
 
+VALID_SCRIPTS=(annoyme changeme commfailure commok doreboot doshutdown emergency failing loadlimit powerout onbattery offbattery mainsback remotedown runlimit timeout startselftest endselftest battdetach battattach)
+
 NAME=$(jq --raw-output ".name" $CONFIG_PATH)
 CABLE=$(jq --raw-output ".cable" $CONFIG_PATH)
 TYPE=$(jq --raw-output ".type" $CONFIG_PATH)
@@ -45,6 +47,14 @@ for key in "${keys[@]}"; do
     else
         #remove from config
         sed -i "s/^#\?$key\( .*\)\?\$//g" $UPS_CONFIG_PATH
+    fi
+done
+
+for script in "${VALID_SCRIPTS[@]}"; do
+    if [ -f "/share/apcupsd/scripts/$script" ]; then
+        cp "/share/apcupsd/scripts/$script" "/etc/apcupsd/$script"
+        chmod a+x "/etc/apcupsd/$script"
+        echo "copied custom $script script"
     fi
 done
 
