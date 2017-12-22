@@ -18,7 +18,9 @@ RUN echo '#!/bin/sh' > /bin/mail
 RUN echo 'exit 0' >> /bin/mail
 RUN chmod a+x /bin/mail
 
-RUN apk add --no-cache apcupsd jq curl openssh
+RUN apk add --no-cache apcupsd jq curl openssh msmtp mailx
+
+RUN ln -sf /usr/bin/msmtp /usr/sbin/sendmail
 
 WORKDIR /data
 

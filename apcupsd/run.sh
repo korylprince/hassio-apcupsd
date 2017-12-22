@@ -58,6 +58,14 @@ for script in "${VALID_SCRIPTS[@]}"; do
     fi
 done
 
+if [ -f "/share/apcupsd/msmtprc" ]; then
+    cp /share/apcupsd/msmtprc /etc
+fi
+
+if [ -f "/share/apcupsd/aliases" ]; then
+    cp /share/apcupsd/aliases /etc
+fi
+
 syslogd -n -O - &
 
 exec /sbin/apcupsd -b
