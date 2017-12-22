@@ -32,6 +32,26 @@ Note: If you're wondering why the excessive syntax, currently it's not possible 
 
 For help with configuring apcupsd itself, see the [manual](http://www.apcupsd.com/manual/manual.html).
 
+# Host Control
+
+This add-on communicates with the Hass.io API to reboot or poweroff the host (e.g. Raspberry Pi) just like if `apcupsd` was running on the host. It does this by replacing `/sbin/reboot` and `/sbin/poweroff` with scripts that talk to the Hass.io API. To prevent your host from powering off when your battery gets low, see the Advanced Configuration section below.
+
+# Advanced Configuration
+
+This add-on supports running scripts on any of the [apcupsd events](http://www.apcupsd.com/manual/manual.html#customizing-event-handling).
+
+### Setup
+
+Use the [SSH](https://home-assistant.io/addons/ssh/) or [Samba](https://home-assistant.io/addons/samba/) add-on to create the script directory: `/share/apcupsd/scripts`. Place any script you'd like to run (e.g. `commfailure` or `onbattery`) in this directory.
+
+For example, if you'd like to run a script on the `commfailure` event, create a shell script at `/share/apcupsd/scripts/commfailure` (it *shouldn't* have a `.sh` extension.)
+
+### Tips & Tricks
+
+* `apcupsd` provides scripts for the following events: `commfailure`, `offbattery`, `changeme`, `commok`, `onbattery`. If you provide your own script, it will override the one `apcupsd` provides.
+* `curl` and `openssh` are provided for use in scripts. If there is another program you'd like to be included in the image, create an Issue and I'll consider adding it.
+* Even if you override an event script, `acpupsd` still runs additional actions on certain events, e.g. `doreboot` and `doshutdown` still reboot or poweroff the host. If you'd like to prevent that action from happening, `exit 99` in your script. See the [guide](http://www.apcupsd.com/manual/manual.html#customizing-event-handling) for more information.
+
 ### Email Information
 
 `apcupsd` (the daemon) contains utilities to automatically email someone when a battery event occurs. This add-on does not currently support email (it just mocks the `mail` command.) If this is something you'd like, feel free to submit a PR.
