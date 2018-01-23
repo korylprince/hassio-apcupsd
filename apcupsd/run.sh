@@ -24,7 +24,7 @@ if [[ ! -z "$TYPE" ]]; then
 fi
 
 if [[ ! -z "$DEVICE" ]]; then
-    sed -i "s/^#\?UPSNAME\( .*\)\?\$/UPSDEVICE $DEVICE/g" $UPS_CONFIG_PATH
+    sed -i "s/^#\?DEVICE\( .*\)\?\$/DEVICE $DEVICE/g" $UPS_CONFIG_PATH
 else
     sed -i "s/^#\?DEVICE\( .*\)\?\$//g" $UPS_CONFIG_PATH
 fi
