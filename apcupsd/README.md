@@ -45,6 +45,8 @@ apcupsd:
   host: a722577e-apcupsd
 ```
 
+Make sure to also setup your [acpupsd sensors](https://home-assistant.io/components/sensor.apcupsd/).
+
 # Advanced Configuration
 
 This add-on supports running scripts on any of the [apcupsd events](http://www.apcupsd.com/manual/manual.html#customizing-event-handling).
