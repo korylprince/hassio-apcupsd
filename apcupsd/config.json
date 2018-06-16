@@ -9,7 +9,7 @@
     "boot": "auto",
     "hassio_api": true,
     "map": ["share"],
-    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
+    "devices": ["/dev/usb/:/dev/usb/:rwm"],
     "options": {
         "name": "APC UPS",
         "cable": "usb",
