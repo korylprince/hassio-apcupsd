@@ -1,6 +1,6 @@
 {
     "name": "APC UPS Daemon (No USB)",
-    "version": "1.5",
+    "version": "1.6",
     "slug": "apcupsd_net",
     "description": "View information from APC Network UPSs",
     "url": "https://github.com/korylprince/hassio-apcupsd/tree/master/apcupsd_net",
