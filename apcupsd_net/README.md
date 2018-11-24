@@ -2,7 +2,7 @@
 
 This unofficial add-on gives you the ability to connect an APC UPS to your [Hass.io](https://home-assistant.io/hassio/) device and monitor it with the [apcupsd component](https://home-assistant.io/components/apcupsd/).
 
-This version of the add-on is for USB UPSs.
+This version of the add-on is for network UPSs.
 
 # Installation
 
@@ -10,13 +10,13 @@ See the actual [repository](https://github.com/korylprince/hassio-apcupsd/) for 
 
 # Configuration
 
-The default options will work for most modern APC UPSs. The following table shows the default options:
+You'll need to configure the add-on to point to your network UPS. The following table shows the default options:
 
 Configuration Option | `apcupsd.conf` Equivalent | Default Value
 ---------------------|---------------------------|--------------
 name | UPSNAME | APC UPS
-cable | UPSCABLE | usb
-type | UPSTYPE | usb
+cable | UPSCABLE | ether
+type | UPSTYPE | net
 device | DEVICE | \<unset\>
 
 You can also override any setting in `apcupsd.conf` using the `extra` configuration option:
@@ -44,7 +44,7 @@ Home Assistant can communicate with this add-on through the [internal Hass.io ne
 
 ```
 apcupsd:
-  host: a722577e-apcupsd
+  host: a722577e-apcupsd_net
 ```
 
 Make sure to also setup your [acpupsd sensors](https://home-assistant.io/components/sensor.apcupsd/).
@@ -55,9 +55,9 @@ This add-on supports running scripts on any of the [apcupsd events](http://www.a
 
 ### Setup
 
-Use the [SSH](https://home-assistant.io/addons/ssh/) or [Samba](https://home-assistant.io/addons/samba/) add-on to create the scripts directory: `/share/apcupsd/scripts`. Place any script you'd like to run (e.g. `commfailure` or `onbattery`) in this directory.
+Use the [SSH](https://home-assistant.io/addons/ssh/) or [Samba](https://home-assistant.io/addons/samba/) add-on to create the scripts directory: `/share/apcupsd_net/scripts`. Place any script you'd like to run (e.g. `commfailure` or `onbattery`) in this directory.
 
-For example, if you'd like to run a script on the `commfailure` event, create a shell script at `/share/apcupsd/scripts/commfailure` (it *shouldn't* have a `.sh` extension.)
+For example, if you'd like to run a script on the `commfailure` event, create a shell script at `/share/apcupsd_net/scripts/commfailure` (it *shouldn't* have a `.sh` extension.)
 
 ### Tips & Tricks
 
@@ -67,7 +67,7 @@ For example, if you'd like to run a script on the `commfailure` event, create a 
 
 ### Email Setup
 
-[msmtp](http://msmtp.sourceforge.net/doc/msmtp.html) is included in the image to allow sending email from scripts. Put your configuration in `/share/apcupsd/msmtprc`. 
+[msmtp](http://msmtp.sourceforge.net/doc/msmtp.html) is included in the image to allow sending email from scripts. Put your configuration in `/share/apcupsd_net/msmtprc`. 
 
 **Example Gmail Setup:**
 
@@ -95,7 +95,7 @@ account default : gmail
 
 **Note:** Make sure to include `syslog on` in your configuration so messages will show up in the add-on logs.
 
-If you use the default `apcupsd` scripts, you'll need to provide an alias for `root` in `/share/apcupsd/aliases`:
+If you use the default `apcupsd` scripts, you'll need to provide an alias for `root` in `/share/apcupsd_net/aliases`:
 
 ```
 root: <your email>
