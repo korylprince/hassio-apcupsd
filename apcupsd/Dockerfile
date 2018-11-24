@@ -14,7 +14,7 @@ RUN rm /sbin/reboot
 COPY hassio_reboot /sbin/reboot
 RUN chmod a+x /sbin/reboot
 
-RUN apk add --no-cache apcupsd jq curl openssh msmtp mailx
+RUN apk add --no-cache apcupsd=3.14.14-r0 jq curl openssh msmtp mailx
 
 RUN ln -sf /usr/bin/msmtp /usr/sbin/sendmail
 
