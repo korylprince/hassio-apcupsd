@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.7] - 2018-11-24
+### Fixed
+- Update add-on to support newer Hass.io API authentication
+
 ## [1.6] - 2018-11-23
 ### Added
 - Added apcupsd_net add-on for network UPSs
@@ -40,6 +44,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial Project
 
+[1.7]: https://github.com/korylprince/hassio-apcupsd/compare/1.6...1.7
 [1.6]: https://github.com/korylprince/hassio-apcupsd/compare/1.5...1.6
 [1.5]: https://github.com/korylprince/hassio-apcupsd/compare/1.4...1.5
 [1.4]: https://github.com/korylprince/hassio-apcupsd/compare/1.3...1.4
