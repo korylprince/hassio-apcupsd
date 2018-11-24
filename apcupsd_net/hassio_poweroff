@@ -1,4 +1,9 @@
 #!/bin/sh
 
+TOKEN=$API_TOKEN
+if [ "$HASSIO_TOKEN" != "" ]; then
+    TOKEN=$HASSIO_TOKEN
+fi
+
 echo "Telling Hass.io to power off host:"
-echo `curl -s -X POST -H "X-HASSIO-KEY: $API_TOKEN" "http://hassio/host/shutdown"`
+echo `curl -s -X POST -H "X-HASSIO-KEY: $TOKEN" "http://hassio/host/shutdown"`

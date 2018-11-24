@@ -8,6 +8,7 @@
     "startup": "services",
     "boot": "auto",
     "hassio_api": true,
+    "hassio_role": "manager",
     "map": ["share"],
     "options": {
         "name": "APC UPS",

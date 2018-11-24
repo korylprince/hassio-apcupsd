@@ -8,6 +8,7 @@
     "startup": "services",
     "boot": "auto",
     "hassio_api": true,
+    "hassio_role": "manager",
     "map": ["share"],
     "devices": ["/dev/usb/:/dev/usb/:rwm"],
     "options": {
