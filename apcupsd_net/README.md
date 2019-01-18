@@ -44,7 +44,7 @@ Home Assistant can communicate with this add-on through the [internal Hass.io ne
 
 ```
 apcupsd:
-  host: a722577e-apcupsd_net
+  host: a722577e-apcupsd-net
 ```
 
 Make sure to also setup your [acpupsd sensors](https://home-assistant.io/components/sensor.apcupsd/).
