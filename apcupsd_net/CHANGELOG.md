@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.9] - 2019-06-02
+### Updated
+- Updated base image to latest version (based on Alpine 3.10)
+- Updated apcupsd to 3.14.14-r1
+
 ## [1.8] - 2019-03-09
 ### Added
 - Added new armv7 Docker Hub build
@@ -51,6 +56,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial Project
 
+[1.9]: https://github.com/korylprince/hassio-apcupsd/compare/1.8...1.9
 [1.8]: https://github.com/korylprince/hassio-apcupsd/compare/1.7...1.8
 [1.7]: https://github.com/korylprince/hassio-apcupsd/compare/1.6...1.7
 [1.6]: https://github.com/korylprince/hassio-apcupsd/compare/1.5...1.6
